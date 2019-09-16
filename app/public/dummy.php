@@ -16,6 +16,14 @@
     "priority": "medium"
   },
   {
+    "patientGuid": "SOME-Some-blah",
+    "firstName": "Bob",
+    "lastName": "Bobby",
+    "dob": "1950-09-15",
+    "sexAtBirth": "M",
+    "priority": "high"
+  },
+  {
     "patientGuid": "SOME-UNIQUE-ABCDE1",
     "firstName": "John",
     "lastName": "Doe",
