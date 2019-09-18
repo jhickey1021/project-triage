@@ -1,5 +1,5 @@
-var waitingApp = new Vue({
-  el: '#patientRecordApp',
+var patientRecordsApp = new Vue({
+  el: '#patientRecordsApp',
   data: {
     patients: []
   },
@@ -7,7 +7,7 @@ var waitingApp = new Vue({
     fetchPatients() {
       fetch('dummy.php')
       .then(response => response.json())
-      .then(json => {patientRecordApp.patients = json});
+      .then(json => { patientRecordsApp.patients = json })
 
       // Means the same at this
       // fetch('https://randomuser.me/api/')
