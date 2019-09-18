@@ -1,7 +1,14 @@
 var patientRecordsApp = new Vue({
   el: '#patientRecordsApp',
   data: {
-    patients: []
+    patients: [],
+    formPatient: {
+      firstName:'',
+      lastName:'',
+      dob:'',
+      sab:''
+
+    }
   },
   methods: {
     fetchPatients() {
@@ -9,12 +16,24 @@ var patientRecordsApp = new Vue({
       .then(response => response.json())
       .then(json => { patientRecordsApp.patients = json })
 
-      // Means the same at this
-      // fetch('https://randomuser.me/api/')
-      // .then(function(response) {return response.json()})
-      // .then(function(json) {waitingApp.people = json});
 
+
+    },
+
+    handleCreateRecord(event){
+      //todo POST the form
+    this.patients.push(this.formPatient);
+    this.formPatient = {
+      firstName:'',
+      lastName:'',
+      dob:'',
+      sab:''
     }
+  },
+  selectRecord(patient){
+    console.log(patient);
+  }
+
   },
   created() {
     this.fetchPatients()
