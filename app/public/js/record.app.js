@@ -2,40 +2,37 @@ var patientRecordsApp = new Vue({
   el: '#patientRecordsApp',
   data: {
     patients: [],
-    formPatient: {
-      firstName:'',
-      lastName:'',
-      dob:'',
-      sab:''
-
-    }
+    recordPatient: {}
   },
   methods: {
     fetchPatients() {
       fetch('dummy.php')
       .then(response => response.json())
       .then(json => { patientRecordsApp.patients = json })
-
-
-
     },
-
-    handleCreateRecord(event){
-      //todo POST the form
-    this.patients.push(this.formPatient);
-    this.formPatient = {
-      firstName:'',
-      lastName:'',
-      dob:'',
-      sab:''
+    handleSubmit(event) {
+      // fetch(url, {
+      //   method: 'post',
+      //   data: this.recordPatient
+      // })
+      // .then( ... )
+      this.patients.push( this.recordPatient );
+      this.handleReset();
+    },
+    handleReset() {
+      this.recordPatient = {
+        firstName: '',
+        lastName: '',
+        dob: '',
+        sexAtBirth: ''
+      }
+    },
+    handleRowClick(patient) {
+      patientTriageApp.patient = patient;
     }
-  },
-  selectRecord(patient){
-    console.log(patient);
-  }
-
-  },
+  }, // end methods
   created() {
-    this.fetchPatients()
+    this.handleReset();
+    this.fetchPatients();
   }
 });
