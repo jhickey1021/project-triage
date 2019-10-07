@@ -1,15 +1,15 @@
 <?php
 
-// Step 0: Validate the incoming data
-
+// Step 0: Validate data
 
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
 
-// Step 2: Create & run the query
+// Step 2: Prepare & run the query
 $stmt = $db->prepare(
-  'INSERT INTO PatientVisit (patientGuid, visitDescription, priority)
-  VALUES (?, ?, ?)'
+  'INSERT INTO PatientVisit
+  (patientGuid, visitDescription, priority)
+  VALUES (?,?,?)'
 );
 
 $stmt->execute([
