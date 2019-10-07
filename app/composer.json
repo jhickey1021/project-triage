@@ -3,9 +3,10 @@
     "description": "An in-class example project",
     "license": "private",
     "authors": [{
-        "name": "Tom Gregory"
+        "name": "Joe Hickey"
     }],
-    "require": {},
+    "require": {
+      "ramsey/uuid": "^3.8"    },
     "autoload": {
         "classmap": ["class/DbConnection.php"]
     }
